@@ -230,7 +230,8 @@
   HeaderFooterMapper.prototype.mapFooter = function () {
     var prop = this.getProperty();
     var biz = prop.businessInfo || {};
-    var contactPhone = prop.contactPhone;
+    // var contactPhone = prop.contactPhone;
+    var contactPhone = '070-4630-6431';
     var fields = {
       '[data-footer-phone]': contactPhone,
       '[data-footer-address]': biz.businessAddress,
