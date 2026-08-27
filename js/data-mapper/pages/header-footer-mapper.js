@@ -226,14 +226,31 @@
     });
   };
 
-  // MAPPER: property.businessInfo → footer 라인별 텍스트
+  // 전화번호 링크(<a data-footer-phone-link>)를 번호 개수만큼 복제해 한 줄씩 노출
+  HeaderFooterMapper.prototype.renderFooterPhones = function (phones) {
+    var links = document.querySelectorAll('[data-footer-phone-link]');
+    if (!links.length) return;
+    var base = links[0];
+    var parent = base.parentNode;
+    // 재매핑 대비: 앞서 복제한 링크는 제거하고 원본만 템플릿으로 사용
+    for (var i = links.length - 1; i >= 1; i--) {
+      links[i].parentNode.removeChild(links[i]);
+    }
+    phones.forEach(function (phone, idx) {
+      var el = idx === 0 ? base : base.cloneNode(true);
+      var span = el.querySelector('[data-footer-phone]');
+      if (span) span.textContent = phone;
+      el.setAttribute('href', 'tel:' + String(phone).replace(/[^0-9+]/g, ''));
+      if (idx > 0) parent.appendChild(el);
+    });
+  };
+
+  // MAPPER: property.contactPhone / property.businessInfo → footer 라인별 텍스트
   HeaderFooterMapper.prototype.mapFooter = function () {
     var prop = this.getProperty();
     var biz = prop.businessInfo || {};
-    // var contactPhone = prop.contactPhone;
-    var contactPhone = '070-4630-6431';
+    var phones = this.toPhoneList(prop.contactPhone);
     var fields = {
-      '[data-footer-phone]': contactPhone,
       '[data-footer-address]': biz.businessAddress,
       '[data-footer-business-name]': biz.businessName,
       '[data-footer-representative]': biz.representativeName,
@@ -247,13 +264,8 @@
       });
     });
 
-    // 전화번호 tel: 링크 (F 템플릿 푸터: <a data-footer-phone-link href="tel:...">)
-    if (contactPhone) {
-      var tel = String(contactPhone).replace(/[^0-9+]/g, '');
-      document.querySelectorAll('[data-footer-phone-link]').forEach(function (el) {
-        el.setAttribute('href', 'tel:' + tel);
-      });
-    }
+    // 전화번호: 배열에 담긴 번호를 전부 줄바꿈해 노출 (각각 tel: 링크)
+    this.renderFooterPhones(phones);
 
     // 푸터 ROOMS 링크: layoutMap(미리보기) 활성 시 layout-map.html, 아니면 첫 번째 객실 room.html
     // (헤더 ROOMS 메뉴의 미리보기 노출 로직 isPageEnabled('layoutMap')과 일관)

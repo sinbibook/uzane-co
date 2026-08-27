@@ -99,8 +99,8 @@ roomStructures[0] + "/ " + 값≥1인 항목들 나열
 
 | data-\* 속성                  | 요소                        | JSON 경로                                  |
 | ----------------------------- | --------------------------- | ------------------------------------------ |
-| `data-footer-phone`           | `.ft_tel` 전화번호 `<span>` | `property.businessInfo.businessPhone`      |
-| `data-footer-phone-link`      | `.ft_tel` `<a>` (tel: 링크) | `tel:{businessPhone 숫자만}`               |
+| `data-footer-phone`           | `.ft_tel` 전화번호 `<span>` | `property.contactPhone[0]`                 |
+| `data-footer-phone-link`      | `.ft_tel` `<a>` (tel: 링크) | `tel:{contactPhone[0] 숫자만}`             |
 | `data-footer-business-name`   | 상호 `<span>`               | `property.businessInfo.businessName`       |
 | `data-footer-address`         | 도로명 `<span>`             | `property.businessInfo.businessAddress`    |
 | `data-footer-business-number` | 사업자번호 `<span>`         | `property.businessInfo.businessNumber`     |
@@ -227,8 +227,8 @@ hero.images[isSelected] 기준:
 | `data-directions-notice-title`    | `.map_info dl dt`(이용안내)        | `pages.directions.sections[0].notice.title`                                      |
 | `data-directions-notice-description` | `.map_info dl dd`(이용안내)     | `pages.directions.sections[0].notice.description` (\n→`<br>`)                    |
 | `data-property-address`           | `.map_info dl dd`(주소)            | `property.address`                                                               |
-| `data-property-phone`             | `.map_info dl dd`(전화) `<span>`   | `property.businessInfo.businessPhone`                                            |
-| `data-property-phone-link`        | `.map_info dl dd`(전화) `<a>`      | `tel:{businessPhone 숫자만}`                                                     |
+| `data-property-phone`             | `.map_info dl dd`(전화) `<span>`   | `property.contactPhone[0]`                                             |
+| `data-property-phone-link`        | `.map_info dl dd`(전화) `<a>`      | `tel:{contactPhone[0] 숫자만}`                                      |
 
 - `#snb_wrap`(외부풍경/오시는길)은 정적 유지(외부풍경→`/main.html`, 오시는길→`/directions.html`).
 - 지도: F의 Daum roughmap(키 기반) 위젯 제거 → `<div id="kakao-map">` + `js/kakao-maps-sdk.js`(body 끝)로 교체.
@@ -281,11 +281,11 @@ hero.images[isSelected] 기준:
 | `data-room-max-occupancy`     | 표 최대(PC/모바일)                  | `rooms[j].maxOccupancy`                                                          |
 | `data-room-size`              | 표 평형(PC)                         | `rooms[j].size + "평"`                                                           |
 | `data-room-amenities`         | `.table_text` 집기품목(PC/모바일)   | `rooms[j].amenities.join(', ')`                                                  |
-| `data-room-gallery`           | `.list` (li p배경+img 순서 주입)    | `roomtypes[current]` interior (scaleAni 레이아웃 유지)                           |
+| `data-room-gallery`           | `.list` (li p배경+img 순서 주입, 5칸 고정) | `roomtypes[current]` 컨셉 및 외경(`roomtype_exterior`, isSelected) 순서대로 (scaleAni 레이아웃 유지) |
 | `data-room-list-slides`       | `.main_room .preivew .swiper-wrapper` | `roomtypes[]` (+rooms id매칭 구조, 미리보기 슬라이더)                         |
 | `data-booking-link`           | info 예약하기 `<a>`                 | `property.realtimeBookingId` (header-footer-mapper 공통 처리)                   |
 
-- 모든 이미지 영역은 interior(또는 thumbnail) 이미지에서 순서대로 채우며, 없으면 `ImageHelpers` empty placeholder.
+- 이미지 영역은 각 영역이 지정한 category(hero/info=interior, 갤러리=exterior, 미리보기=thumbnail)에서 `isSelected` 이미지를 순서대로 채우며, 없으면 `ImageHelpers` empty placeholder.
 
 ---
 

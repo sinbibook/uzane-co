@@ -179,6 +179,17 @@
     });
   };
 
+  BaseDataMapper.prototype.toPhoneList = function (value) {
+    var fallbackPhone = '1833-9306';
+    var list = [];
+    if (Array.isArray(value)) {
+      list = value.filter(function (v) { return typeof v === 'string' && v.trim(); });
+    } else if (typeof value === 'string' && value.trim()) {
+      list = [value];
+    }
+    return list.length > 0 ? list : [fallbackPhone];
+  };
+
   // ── SEO 메타태그 업데이트 ──────────────────────────────────────
   BaseDataMapper.prototype.updateMetaTags = function (pageSEO) {
     var hp = this.getHomepage();

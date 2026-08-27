@@ -79,15 +79,24 @@
   };
 
   // roomtypes[current] interior 이미지[isSelected]
-  RoomMapper.prototype.getInteriorImages = function (rt) {
+  RoomMapper.prototype.getImagesByCategory = function (rt, category) {
     if (!rt) return [];
     return (rt.images || [])
       .filter(function (im) {
-        return im.category === 'roomtype_interior' && im.isSelected;
+        return im.category === category && im.isSelected;
       })
       .sort(function (a, b) {
         return a.sortOrder - b.sortOrder;
       });
+  };
+
+  RoomMapper.prototype.getInteriorImages = function (rt) {
+    return this.getImagesByCategory(rt, 'roomtype_interior');
+  };
+
+  // 컨셉 및 외경 이미지 (갤러리용)
+  RoomMapper.prototype.getExteriorImages = function (rt) {
+    return this.getImagesByCategory(rt, 'roomtype_exterior');
   };
 
   RoomMapper.prototype.refreshSwipers = function () {
@@ -219,16 +228,16 @@
     }
   };
 
-  // MAPPER: roomtypes[current] interior → [data-room-gallery] (.list li p배경+img, 레이아웃 유지)
+  // MAPPER: roomtypes[current] 컨셉 및 외경(exterior) → [data-room-gallery] (.list li p배경+img, 레이아웃 유지)
   RoomMapper.prototype.mapGallery = function () {
     var gallery = document.querySelector('[data-room-gallery]');
     if (!gallery) return;
-    var interior = this.getInteriorImages(this.getCurrentRoomtype());
+    var exterior = this.getExteriorImages(this.getCurrentRoomtype());
     var lis = gallery.querySelectorAll('li');
     lis.forEach(function (li, i) {
       var p = li.querySelector('p');
       var img = li.querySelector('img');
-      var src = interior[i];
+      var src = exterior[i];
       if (p) {
         if (src && src.url) {
           p.style.backgroundImage = 'url(' + src.url + ')';
