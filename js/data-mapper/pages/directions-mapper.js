@@ -157,18 +157,17 @@
     });
   };
 
-  // MAPPER: property.businessInfo.businessPhone → [data-property-phone] (+ tel: 링크, 없으면 행 숨김)
+  // MAPPER: property.contactPhone → [data-property-phone] (+ tel: 링크)
   DirectionsMapper.prototype.mapPhone = function () {
-    var phone = (this.getProperty().businessInfo || {}).businessPhone || '';
+    var phone = this.toPhoneList(this.getProperty().contactPhone)[0];
     document.querySelectorAll('[data-property-phone]').forEach(function (el) {
       el.textContent = phone;
     });
-    var tel = phone ? String(phone).replace(/[^0-9+]/g, '') : '';
+    var tel = String(phone).replace(/[^0-9+]/g, '');
     document.querySelectorAll('[data-property-phone-link]').forEach(function (el) {
-      if (phone) el.setAttribute('href', 'tel:' + tel);
-      // 전화 행 숨김: <a>의 조상 <dd>와 그 앞 <dt>
+      el.setAttribute('href', 'tel:' + tel);
       var dd = el.closest('dd');
-      toggleRow(dd, !!phone);
+      toggleRow(dd, true);
     });
   };
 

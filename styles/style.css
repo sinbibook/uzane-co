@@ -3121,6 +3121,13 @@ header
   letter-spacing: 0.01em;
   line-height: 1.2em;
 }
+/* 전화번호가 여러 개일 때 두 번째부터 아래 줄에 노출 */
+.ft_tel a {
+  display: block;
+}
+.ft_tel a + a {
+  margin-top: 8px;
+}
 
 .ft_info {
   margin-top: 50px;
