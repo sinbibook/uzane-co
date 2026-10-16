@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.6.0",
-    "generatedAt": "2026-10-12T02:35:28.926120976Z",
+    "version": "1.7.0",
+    "generatedAt": "2026-10-16T13:38:39.049873106Z",
     "templateType": "trip_d",
     "propertyId": "76dc77ed-8366-4544-b859-f02c89cf1cb1",
     "homepageId": "b80f8e12-0342-43e1-b183-8a5120e2d05f"
@@ -70,11 +70,68 @@
     },
     "facilities": [
       {
+        "id": "01a144ee-d4f0-73a5-adc7-ef44591ac44b",
+        "name": "오션뷰",
+        "description": "",
+        "usageGuide": "",
+        "displayOrder": 0,
+        "images": [
+          {
+            "id": "01a144ee-e79b-7f3a-9af7-01a941d12f62",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868924-cz1tf5i2m1.webp",
+            "sortOrder": 0,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          },
+          {
+            "id": "01a144ee-e9f0-7f45-b603-84f304b1383d",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868935-opf9zpz9tk.webp",
+            "sortOrder": 1,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          },
+          {
+            "id": "01a144ee-e976-7a5b-88dd-56bf7b892b3b",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868925-b3gnprjp33.webp",
+            "sortOrder": 2,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          },
+          {
+            "id": "01a144ee-e867-7680-9bf2-26be4498f372",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868922-7x83fxoahz.webp",
+            "sortOrder": 3,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          },
+          {
+            "id": "01a144ee-e8ea-78e4-a813-6adaf0905010",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868939-dpss5w0zz3.webp",
+            "sortOrder": 4,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          },
+          {
+            "id": "01a144ee-e904-710a-ae0b-78ca6c00ee49",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/01a144ee-d4f0-73a5-adc7-ef44591ac44b/main/1792157868937-sifblzaqir.webp",
+            "sortOrder": 5,
+            "description": "",
+            "isSelected": true,
+            "blockId": null
+          }
+        ]
+      },
+      {
         "id": "c6a9f110-be5f-4b16-a6cb-115ff06e6edf",
         "name": "개별바베큐",
         "description": "",
         "usageGuide": "- 이용 객실: B-05호(개별), 독채 객실(개별), B-04호 (공용)\n- 바베큐 형태: 숯불\n- 이용 요금: 2~3인 기준 22,000원 / 4명 이상 33,000원 / 그릴 두개 이용시 60,000원 (1박기준/현장결제)\n- 이용 시간: ~22:00\n- 우천 시 이용 불가\n- 동계 시 이용 불가\n- 강풍 시 이용 불가\n※ 신청 시간: 입실 시 신청",
-        "displayOrder": 2,
+        "displayOrder": 1,
         "images": [
           {
             "id": "404fdee9-5e4d-47b0-b485-5ccb6ff328e5",
@@ -131,7 +188,7 @@
         "name": "불멍",
         "description": "",
         "usageGuide": "- 이용 요금: 10,000원(1박기준/현장결제)\n- 이용 시간: ~22:00\n※ 화롯대, 토치 제공 (장작 별도 구비 필요)\n※ 산불조심 기간 이용 불가\n※ 바람이 많이 부는 날은 이용 불가\n※ 상황에 따라 이용 시간 제한 있을 수 있음.",
-        "displayOrder": 3,
+        "displayOrder": 2,
         "images": [
           {
             "id": "01425885-7129-4631-9cd6-d83b1fb0c143",
@@ -172,7 +229,7 @@
         "name": "부대시설",
         "description": "",
         "usageGuide": "[갯벌체험]\n- 도구(장화,호미) 무료 대여\n- 입실 당일 물때 시간 확인 (바다타임-창선도)\n- 입실(오후 3시)전, 퇴실(오전 11시)후 체험 불가\n- 체험 장갑과 해감용 소금은 제공되지 않습니다.",
-        "displayOrder": 4,
+        "displayOrder": 3,
         "images": [
           {
             "id": "3030a19e-f1a2-4eba-991f-09817a93fb60",
@@ -213,7 +270,7 @@
         "name": "편의 및 주변 시설",
         "description": "",
         "usageGuide": "- 와이파이 보유\n- 엘레베이터 미보유\n- OTT 이용 가능\n※ 넷플릭스, 유튜브 이용 가능\n※ OTT 개인계정 필요\n- 화재감지기 보유\n- 일산화탄소감지기 보유",
-        "displayOrder": 5,
+        "displayOrder": 4,
         "images": [
           {
             "id": "d1ed4e17-b4a7-433a-8a07-292009c074ff",
@@ -317,7 +374,7 @@
           {
             "id": "73bc984f-1c6a-4353-a4c7-f8052375378c",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/osqybiNuXGYn.jpg",
-            "sortOrder": 1,
+            "sortOrder": 0,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -327,7 +384,7 @@
           {
             "id": "79a0f24f-600a-4cf0-bd24-056d1455b26f",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/mplaL0Eobfgr.jpg",
-            "sortOrder": 2,
+            "sortOrder": 0,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -335,7 +392,7 @@
           {
             "id": "fe747740-1583-4065-8ebd-b9530da5157e",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/xnDueRW1vk7M.jpg",
-            "sortOrder": 3,
+            "sortOrder": 1,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -343,7 +400,7 @@
           {
             "id": "6813f12e-631e-4c5a-94ae-06f7f5b38e78",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/HFaQS6t39udU.jpg",
-            "sortOrder": 4,
+            "sortOrder": 2,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -351,7 +408,7 @@
           {
             "id": "1c14bcce-cd20-43b5-a4f4-383211edc060",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/50eq1bNxVrt8.jpg",
-            "sortOrder": 5,
+            "sortOrder": 3,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -359,7 +416,7 @@
           {
             "id": "ac6766ff-2a35-437a-a2cd-96fc88e2d2b2",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/hbRNXz6D7mvo.jpg",
-            "sortOrder": 6,
+            "sortOrder": 4,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -367,7 +424,7 @@
           {
             "id": "c8cecc46-d279-497c-9087-6fc759931c8a",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/nZlT0MwABSEY.jpg",
-            "sortOrder": 7,
+            "sortOrder": 5,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -375,7 +432,7 @@
           {
             "id": "cb69ef8b-26ad-452e-b1bf-d584a71ab8df",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/8sioBMd69SWO.jpg",
-            "sortOrder": 8,
+            "sortOrder": 6,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -383,7 +440,7 @@
           {
             "id": "6d3573da-7348-4b6b-bbe0-461772757263",
             "url": "https://bookingplay-media.s3.amazonaws.com/item_images/2026/07/22/OtBhuRnEw65A.jpg",
-            "sortOrder": 9,
+            "sortOrder": 7,
             "description": "",
             "isSelected": true,
             "blockId": null
@@ -1545,7 +1602,28 @@
             ]
           }
         ],
-        "facility": [ ],
+        "facility": [
+          {
+            "id": "01a144ee-d4f0-73a5-adc7-ef44591ac44b",
+            "sections": [
+              {
+                "hero": {
+                  "title": "",
+                  "images": [ ]
+                },
+                "about": {
+                  "title": " 전 객실에서 아름다운 남해바다 감상이 가능하며\n 펜션 앞 해변에서 여유로운 산책의 시간을 보내보세요.",
+                  "images": [ ]
+                },
+                "experience": {
+                  "features": [ ],
+                  "additionalInfos": [ ],
+                  "benefits": [ ]
+                }
+              }
+            ]
+          }
+        ],
         "reservation": {
           "sections": [
             {
