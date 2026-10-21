@@ -50,6 +50,19 @@
       <div class="scroll-wrap" id="doc" data-scroll-container="">
         <!-- s: container -->
         <div id="container" class="fadeDown" data-scroll="">
+          <!-- ── 인트로 영상 밴드 ────────────────────────────
+               원본(yslastella.kr)은 히어로 **위**에 `<video autoplay muted playsinline>`
+               한 장을 통째로 얹는다. `.vimeoWrap` 에는 CSS 규칙이 없어서
+               `<video width="100%">` 가 그대로 문서 흐름에 놓이는 밴드다.
+               ⚠️ F/I/KIDS 와 동일하게 `signature` 블록의 videos/mediaType 을 쓴다.
+                  D 는 index 에서 signature 를 다른 곳에 쓰지 않는다.
+               ⚠️ `mediaType` 이 'video' 일 때만 노출한다(image/video 택일).
+                  영상 없는 숙소가 정상 상태이므로 기본은 숨김이다. -->
+          <!-- data-* : data-index-hero-video-wrap / -video (signature.videos[0], mediaType==='video') -->
+          <div class="vimeoWrap" data-index-hero-video-wrap style="display: none">
+            <video data-index-hero-video width="100%" controls autoplay muted playsinline preload="none"></video>
+          </div>
+
           <!--// main_visual -->
           <div class="main_visual visual">
             <div class="visual_box">
@@ -119,9 +132,9 @@
                     <!-- MAPPER: facilities[] 기준 .txt-con(첫번째 on) > btxt 'special' + stxt=name 동적 생성 -->
                   </div>
                   <div class="swiper-container spec-txt">
-                    <!-- data-* : data-index-special-texts | property.facilities[] (각 슬라이드 btxt='SPECIAL 0N' 정적 + stxt=facilities[i].description 동적) -->
+                    <!-- data-* : data-index-special-texts | property.facilities[] (각 슬라이드 btxt='SPECIAL 0N' 정적, 시설 설명 미노출) -->
                     <div class="swiper-wrapper" data-index-special-texts>
-                      <!-- MAPPER: facilities[] 기준 .swiper-slide.item > .txt > btxt 'SPECIAL 0N' + stxt=description 동적 생성 -->
+                      <!-- MAPPER: facilities[] 기준 .swiper-slide.item > .txt > btxt 'SPECIAL 0N' 만 생성 (description 미노출) -->
                     </div>
                     <div class="swiper-pagination"></div>
                   </div>
