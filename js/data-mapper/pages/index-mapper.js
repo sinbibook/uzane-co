@@ -106,6 +106,7 @@
   IndexMapper.prototype.mapPage = function () {
     if (this.maybeRedirectToLanding()) return;
 
+    this.mapIntroVideo();
     this.mapHeroSlides();
     this.mapAbout();
     this.mapSpecial();
@@ -164,6 +165,39 @@
     slide.appendChild(img);
     return slide;
   }
+
+  // MAPPER: index.sections[0].signature.videos[0] → .vimeoWrap 인트로 영상 밴드 (히어로 위)
+  // mediaType 이 'video' 일 때만 연다. 영상이 없으면 .vimeoWrap 째 숨긴다 —
+  // <video> 만 비우면 브라우저가 빈 플레이어(컨트롤 바)를 그려 히어로 위에 검은 띠가 남는다.
+  // hero 는 영상 유무와 무관하게 히어로 슬라이더 전용으로 그대로 둔다.
+  IndexMapper.prototype.mapIntroVideo = function () {
+    var signature = this.getIndexSection().signature || {};
+    var url =
+      signature.mediaType === 'video' ? this.getFirstSelectedImage(signature.videos || []) : '';
+
+    document.querySelectorAll('[data-index-hero-video-wrap]').forEach(function (wrap) {
+      wrap.style.display = url ? '' : 'none';
+    });
+    document.querySelectorAll('[data-index-hero-video]').forEach(function (video) {
+      if (!url) {
+        video.removeAttribute('src');
+        return;
+      }
+      // 같은 URL 을 다시 넣으면 재생이 처음으로 돌아간다 (미리보기 재매핑 시)
+      if (video.getAttribute('src') === url) return;
+      video.src = url;
+      // 메타데이터가 와야 영상 높이가 잡힌다 → Locomotive 스크롤 높이를 다시 잰다
+      video.addEventListener(
+        'loadedmetadata',
+        function () {
+          if (window.locoScroll && typeof window.locoScroll.update === 'function') {
+            window.locoScroll.update();
+          }
+        },
+        { once: true }
+      );
+    });
+  };
 
   // MAPPER: index.sections[0].hero.images[isSelected] → [data-index-hero-slides]
   IndexMapper.prototype.mapHeroSlides = function () {
@@ -268,14 +302,13 @@
         titWrap.appendChild(con);
       }
 
-      // spec-txt: 번호 + 시설 설명(description)
+      // spec-txt: 번호만 (시설 설명은 노출하지 않는다)
       if (txtWrap) {
         var tslide = document.createElement('div');
         tslide.className = 'swiper-slide item';
         var txt = document.createElement('div');
         txt.className = 'txt';
-        txt.innerHTML = '<p class="btxt">SPECIAL ' + pad2(i + 1) + '</p><p class="stxt"></p>';
-        txt.querySelector('.stxt').textContent = f.description || '';
+        txt.innerHTML = '<p class="btxt">SPECIAL ' + pad2(i + 1) + '</p>';
         tslide.appendChild(txt);
         txtWrap.appendChild(tslide);
       }
