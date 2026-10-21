@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.8.0",
-    "generatedAt": "2026-10-21T00:39:29.526814439Z",
+    "version": "1.9.0",
+    "generatedAt": "2026-10-21T00:39:54.985049380Z",
     "templateType": "trip_d",
     "propertyId": "76dc77ed-8366-4544-b859-f02c89cf1cb1",
     "homepageId": "b80f8e12-0342-43e1-b183-8a5120e2d05f"
@@ -72,7 +72,7 @@
       {
         "id": "01a144ee-d4f0-73a5-adc7-ef44591ac44b",
         "name": "오션뷰",
-        "description": "",
+        "description": "전 객실에서 아름다운 남해바다 감상이 가능하며\n 펜션 앞 해변에서 여유로운 산책의 시간을 보내보세요.",
         "usageGuide": "",
         "displayOrder": 0,
         "images": [
